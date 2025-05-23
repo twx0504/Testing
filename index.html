@@ -8,29 +8,52 @@
       .box {
         width: 100%;
         background-color: royalblue;
-        font-size: 12px;
+        font-size: 16px;
         color: white;
         text-align: center;
       }
       .box2 {
         background-color: violet;
       }
+      .box3 {
+        background-color: purple;
+      }
+      .text {
+        color: red;
+        font-size: 20px;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
     <div class="box"></div>
     <div class="box box2"></div>
+    <div class="box box3"></div>
     <script>
       var box = document.querySelector(".box");
       var box2 = document.querySelector(".box2");
+      var box3 = document.querySelector(".box3");
+
       var isWechat = function () {
         var userAgent = window.navigator.userAgent.toLowerCase();
         if (userAgent.indexOf("micromessenger") !== -1) return true;
         return false;
       };
+      var isDevice = function () {
+        if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+          return "iOS";
+        } else if (/(Android)/i.test(navigator.userAgent)) {
+          return "Android";
+        }
+        return "Web";
+      };
 
       box.textContent = window.navigator.userAgent;
       box2.textContent = "This script is running in Wechat: " + isWechat();
+      box3.innerHTML =
+        "This script is running in <span class='text'>" +
+        isDevice() +
+        " </span> device";
     </script>
   </body>
 </html>
