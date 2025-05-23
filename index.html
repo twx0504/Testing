@@ -4,16 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>02-Wechat</title>
+    <style>
+      .box {
+        background-color: royalblue;
+        color: white;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
+    <div class="box"></div>
     <script>
-      const isWechat = function () {
+      var box = document.querySelector(".box");
+      var isWechat = function () {
         var userAgent = window.navigator.userAgent.toLowerCase();
         if (userAgent.indexOf("micromessenger") !== -1) return true;
         return false;
       };
 
-      document.body.innerText = isWechat();
+      box.textContent = window.navigator.userAgent;
+
+      document.body.textContent =
+        "This script is running in Wechat: " + isWechat();
     </script>
   </body>
 </html>
